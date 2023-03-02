@@ -69,17 +69,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   * ,-------------------------------.                        ,--------------------------------.
   * |           |   | @ | # | $ | ( |                        | ) | & | * | ` |   |            |
   * |-----------+------+------+-----|                        |------+------+------+------+----|
-  * |LCtrl      |   | ~ | - | % | [ |                        | ] | = | \ | ! |   |RCtrl       |
-  * |-----------+------+------+-----|                        |------+------+------+------+----|
-  * |LShift/ESC |   | / | _ | ^ | { |                        . } | + | | |   |   |RShift      |
+  * |LCtrl      |   | ~ | - | \ | [ |                        | ] | = | % | ! |   |RCtrl       |
+  * |-----------+------+------------|                        |------+--+---+------+------+----|
+  * |LShift/ESC |   | / | _ | | | { |                        . } | + | ^ |   |   |RShift      |
   * `-----------+---+---+---+---+---+--------.  .---------+--+---+---+---+---+---+------------'
                    |        |      |         |  |         |       |     |
                    '--------+------+---------'  '---------+-------+-----'                          
   */
   [2] = LAYOUT_split_3x6_3(
       XXXXXXX, XXXXXXX, KC_AT  ,KC_HASH, KC_DLR , KC_LPRN,                      KC_RPRN, KC_AMPR, KC_ASTR, KC_GRV,  XXXXXXX, XXXXXXX,
-      KC_LCTL, XXXXXXX, KC_TILD,KC_MINS, KC_PERC, KC_LBRC,                      KC_RBRC, KC_EQL,  KC_BSLS, KC_EXLM, XXXXXXX, KC_RCTL,
-      KC_LSFT, XXXXXXX, KC_SLSH,KC_UNDS, KC_CIRC, KC_LCBR,                      KC_RCBR, KC_PLUS, KC_PIPE, XXXXXXX, XXXXXXX, KC_RSFT,
+      KC_LCTL, XXXXXXX, KC_TILD,KC_MINS, KC_BSLS, KC_LBRC,                      KC_RBRC, KC_EQL,  KC_PERC, KC_EXLM, XXXXXXX, KC_RCTL,
+      KC_LSFT, XXXXXXX, KC_SLSH,KC_UNDS, KC_PIPE, KC_LCBR,                      KC_RCBR, KC_PLUS, KC_CIRC, XXXXXXX, XXXXXXX, KC_RSFT,
                                           XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX, XXXXXXX
   ),
 
