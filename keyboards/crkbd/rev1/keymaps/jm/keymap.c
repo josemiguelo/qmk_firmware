@@ -46,20 +46,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* navigate
   * ,-------------------------------.                     ,--------------------------------.
-  * |      |   |PGDN| UP |PGUP |BRIU|                     |VOLU |PGUP| UP |PGDN |   |Del   |
-  * |------+---+----+----+-----+----|                     |-----+----+----+-----+---+------|
+  * |      |   |END | UP |HOME |BRIU|                     |VOLU |PGUP| UP |PGDN |   |Del   |
+  * |------+---+----+----+-----+----|                     |-----+----+----+-----+---+------:
   * |LCtrl |   |LEFT|DOWN|RIGHT|BRID|                     |VOLD |LEFT|DOWN|RIGHT|   |RCtrl |
   * |------+---+----+----+-----+----|                     |-----+----+----+-----+---+------|
-  * |LShift|   |    | CUT|COPY|PASTE|                     |PREV |PLAY|NEXT|     |   |RShift|
+  * |LShift|   | CUT|COPY|PASTE|xxxx|                     |     |PREV |PLAY|NEXT|   |RShift|
   * `----------+---+---+---+---+---+---------.  .---------+---+---+----+----+---+---+------'
                    | Numpad|  Wind |         |  |Sym/Space| Lalt  | Adj |
                    '--------+------+---------'  '---------+-------+-----'                          
   */
   [1] = LAYOUT_split_3x6_3(
-    XXXXXXX, XXXXXXX, KC_PGDN,    KC_UP,   KC_PGUP,    KC_BRIU,                KC_VOLU, KC_PGUP, KC_UP,   KC_PGDN,  XXXXXXX, KC_DEL,
-    KC_RCTL, XXXXXXX, KC_LEFT,    KC_DOWN, KC_RIGHT,   KC_BRID,                KC_VOLD, KC_LEFT, KC_DOWN, KC_RIGHT, XXXXXXX, KC_RCTL,
-    KC_LSFT, XXXXXXX, XXXXXXX, KC_CUT,  KC_COPY,    KC_PASTE,               KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX,  XXXXXXX, KC_RSFT,
-                                           _______, _______, XXXXXXX,    _______, _______, MO(4)
+    XXXXXXX, XXXXXXX, KC_END,  KC_UP,   KC_HOME,    KC_BRIU,                KC_VOLU, KC_PGUP, KC_UP,   KC_PGDN,  XXXXXXX, KC_DEL,
+    KC_RCTL, XXXXXXX, KC_LEFT, KC_DOWN, KC_RIGHT,   KC_BRID,                KC_VOLD, KC_LEFT, KC_DOWN, KC_RIGHT, XXXXXXX, KC_RCTL,
+    KC_LSFT, XXXXXXX, KC_CUT,  KC_COPY, KC_PASTE,   XXXXXXX,                XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT,  XXXXXXX, KC_RSFT,
+                                        _______, _______, XXXXXXX,    _______, _______, MO(4)
   ),
 
 
@@ -67,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* symbols
   * ,-------------------------------.                        ,--------------------------------.
-  * |           |   | @ | # | $ | ( |                        | ) | & | * |   |   |            |
+  * |           |   | @ | # | $ | ( |                        | ) | & | * | ` |   |            |
   * |-----------+------+------+-----|                        |------+------+------+------+----|
   * |LCtrl      |   | ~ | - | % | [ |                        | ] | = | \ | ! |   |RCtrl       |
   * |-----------+------+------+-----|                        |------+------+------+------+----|
@@ -77,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                    '--------+------+---------'  '---------+-------+-----'                          
   */
   [2] = LAYOUT_split_3x6_3(
-      XXXXXXX, XXXXXXX, KC_AT  ,KC_HASH, KC_DLR , KC_LPRN,                      KC_RPRN, KC_AMPR, KC_ASTR, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, XXXXXXX, KC_AT  ,KC_HASH, KC_DLR , KC_LPRN,                      KC_RPRN, KC_AMPR, KC_ASTR, KC_GRV,  XXXXXXX, XXXXXXX,
       KC_LCTL, XXXXXXX, KC_TILD,KC_MINS, KC_PERC, KC_LBRC,                      KC_RBRC, KC_EQL,  KC_BSLS, KC_EXLM, XXXXXXX, KC_RCTL,
       KC_LSFT, XXXXXXX, KC_SLSH,KC_UNDS, KC_CIRC, KC_LCBR,                      KC_RCBR, KC_PLUS, KC_PIPE, XXXXXXX, XXXXXXX, KC_RSFT,
                                           XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX, XXXXXXX
