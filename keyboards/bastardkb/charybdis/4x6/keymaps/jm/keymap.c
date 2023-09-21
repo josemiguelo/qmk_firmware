@@ -56,9 +56,14 @@ static uint16_t auto_pointer_layer_timer = 0;
 #define NAV_SPC LT(LAYER_NAV, KC_SPC)
 #define NUM_ENT LT(LAYER_NUMPAD, KC_ENT)
 
-#define ALT_Q   LALT_T(KC_Q)
-#define ALT_CLN RALT_T(KC_SCLN)
-#define SFT_QUOT LSFT_T(KC_QUOT)
+#define SFT_QUOT    LSFT_T(KC_QUOT)
+
+#define SFT_R LSFT_T(KC_R)
+#define CTL_E LCTL_T(KC_E)
+#define ALT_W LALT_T(KC_W)
+#define SFT_U LSFT_T(KC_U)
+#define CTL_I LCTL_T(KC_I)
+#define ALT_O LALT_T(KC_O)
 
 #ifndef POINTING_DEVICE_ENABLE
 #    define DRGSCRL KC_NO
@@ -67,17 +72,56 @@ static uint16_t auto_pointer_layer_timer = 0;
 #    define SNIPING KC_NO
 #endif // !POINTING_DEVICE_ENABLE
 
+#define TAPPING_TERM 200
+
+enum {
+  TD_ACCENT = 0,
+  TD_TILDE
+};
+
+void td_accent (tap_dance_state_t *state, void *user_data) {
+  if (state->count == 2) {
+    register_code16(KC_RALT);
+    register_code16(KC_QUOT);
+    unregister_code16(KC_QUOT);
+    unregister_code16(KC_RALT);
+  } else {
+    tap_code(KC_QUOT);
+  }
+}
+
+void td_tilde (tap_dance_state_t *state, void *user_data) {
+  if (state->count == 2) {
+    register_code16(KC_RALT);
+    register_code16(KC_TILD);
+    unregister_code16(KC_TILD);
+    unregister_code16(KC_RALT);
+  } else {
+    tap_code(KC_TILD);
+  }
+}
+
+//Tap Dance Definitions
+tap_dance_action_t tap_dance_actions[] = {
+  [TD_ACCENT] = ACTION_TAP_DANCE_FN(td_accent)
+ ,[TD_TILDE]  = ACTION_TAP_DANCE_FN(td_tilde)
+};
+
+
+#define TD_QUOT    TD(TD_ACCENT)
+#define TD_TILD    TD(TD_TILDE)
+
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE] = LAYOUT(
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
        KC_ESC,  POINTER, KC_LCBR, KC_LBRC, KC_LPRN, KC_CAPS,     KC_ENT, KC_RPRN, KC_RBRC, KC_RCBR, POINTER,  KC_BSPC,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_TAB,    ALT_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,  KC_DEL,
+       KC_TAB,     KC_Q,   ALT_W,   CTL_E,   SFT_R,    KC_T,       KC_Y,   SFT_U,   CTL_I,   ALT_O,    KC_P,  KC_DEL,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_LSFT,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,       KC_H,    KC_J,    KC_K,    KC_L, ALT_CLN,SFT_QUOT,
+       XXXXXXX,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,       KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, TD_QUOT,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_LCTL,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_LCTL,
+       XXXXXXX,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, XXXXXXX,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
                                   KC_LGUI, NUM_ENT,  XXXXXXX,  FUNCTION, NAV_SPC,
                                            KC_LALT,  ME_PGUP,   KC_PGDN
@@ -86,13 +130,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [LAYER_NUMPAD] = LAYOUT(
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
-       XXXXXXX, XXXXXXX, _______, _______, _______, XXXXXXX,    XXXXXXX, _______, _______, _______, XXXXXXX, XXXXXXX,
+       XXXXXXX, KC_RALT, _______, _______, _______, XXXXXXX,    XXXXXXX, _______, _______, _______, XXXXXXX, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX, XXXXXXX,    KC_7,    KC_8,    KC_9, XXXXXXX,    XXXXXXX, KC_AMPR, KC_ASTR, KC_PEQL, KC_GRV,XXXXXXX,
+       XXXXXXX,    KC_0,    KC_7,    KC_8,    KC_9, XXXXXXX,    KC_PIPE, KC_AMPR, KC_ASTR, KC_PEQL, KC_GRV,XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       _______, XXXXXXX,    KC_4,    KC_5,    KC_6, KC_PMNS,    KC_UNDS,  KC_DLR, KC_PERC, KC_CIRC, KC_BSLS,_______,
+       _______,    KC_0,    KC_4,    KC_5,    KC_6, KC_PMNS,    KC_UNDS,  KC_DLR, KC_PERC, KC_CIRC, KC_BSLS,_______,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       _______, KC_0,       KC_1,    KC_2,    KC_3, KC_PPLS,     KC_EQL, KC_EXLM,   KC_AT, KC_HASH, KC_TILD,_______,
+       _______,    KC_0,    KC_1,    KC_2,    KC_3, KC_PPLS,     KC_EQL, KC_EXLM,   KC_AT, KC_HASH, TD_TILD,_______,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
                                   _______, _______, XXXXXXX,    XXXXXXX, XXXXXXX,
                                            _______, XXXXXXX,    XXXXXXX
@@ -101,11 +145,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [LAYER_NAV] = LAYOUT(
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
-       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+       XXXXXXX, XXXXXXX, _______, _______, _______, XXXXXXX,    XXXXXXX, _______, _______, _______, XXXXXXX, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX, XXXXXXX, KC_PGUP,   KC_UP, KC_PGDN, KC_PSCR,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+       XXXXXXX, XXXXXXX, KC_PGUP,   KC_UP, KC_PGDN, KC_PSCR,    XXXXXXX, KC_RSFT, KC_RCTL, KC_RALT, XXXXXXX, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX, KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT,  KC_END,    XXXXXXX, KC_RSFT, KC_RCTL, KC_RALT, KC_RGUI, XXXXXXX,
+       XXXXXXX, KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT,  KC_END,    KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, XXXXXXX, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
@@ -118,9 +162,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
        XXXXXXX, _______, DRGSCRL, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, DRGSCRL, _______, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_LCTL, XXXXXXX, SNIPING, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, SNIPING, XXXXXXX, KC_LCTL,
+       KC_LCTL, XXXXXXX, KC_LALT, KC_LCTL, KC_LSFT, DPI_MOD,    DPI_MOD, KC_RSFT, KC_RCTL, KC_RALT, XXXXXXX, KC_LCTL,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DPI_MOD, S_D_MOD,    S_D_MOD, DPI_MOD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, SNIPING, S_D_MOD,    S_D_MOD, SNIPING, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  EE_CLR, QK_BOOT,    QK_BOOT,  EE_CLR, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
@@ -148,11 +192,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    KC_PSCR, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    RGB_MOD, KC_VOLU, KC_BRIU, KC_MPRV, XXXXXXX, XXXXXXX,
+       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    RGB_MOD, KC_VOLU, KC_MPRV, KC_BRIU, XXXXXXX, XXXXXXX,
   // ├───────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,    RGB_TOG, KC_MUTE, XXXXXXX, KC_MPLY, XXXXXXX, XXXXXXX,
+       XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,    RGB_TOG, KC_MUTE, KC_MPLY, XXXXXXX, XXXXXXX, XXXXXXX,
   // ├───────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   RGB_RMOD, KC_VOLD, KC_BRID, KC_MNXT, XXXXXXX, XXXXXXX,
+       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   RGB_RMOD, KC_VOLD, KC_MNXT, KC_BRID, XXXXXXX, XXXXXXX,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
                                   _______, _______, XXXXXXX,    XXXXXXX, XXXXXXX,
                                            _______, _______,    XXXXXXX
