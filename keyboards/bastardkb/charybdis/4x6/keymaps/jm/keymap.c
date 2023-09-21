@@ -97,7 +97,7 @@ void td_tilde (tap_dance_state_t *state, void *user_data) {
     unregister_code16(KC_TILD);
     unregister_code16(KC_RALT);
   } else {
-    tap_code(KC_TILD);
+    tap_code16(KC_TILD);
   }
 }
 
@@ -130,7 +130,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [LAYER_NUMPAD] = LAYOUT(
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
-       XXXXXXX, KC_RALT, _______, _______, _______, XXXXXXX,    XXXXXXX, _______, _______, _______, XXXXXXX, XXXXXXX,
+       XXXXXXX, XXXXXXX, _______, _______, _______, XXXXXXX,    XXXXXXX, _______, _______, _______, XXXXXXX, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        XXXXXXX,    KC_0,    KC_7,    KC_8,    KC_9, XXXXXXX,    KC_PIPE, KC_AMPR, KC_ASTR, KC_PEQL, KC_GRV,XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
@@ -194,9 +194,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    RGB_MOD, KC_VOLU, KC_MPRV, KC_BRIU, XXXXXXX, XXXXXXX,
   // ├───────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,    RGB_TOG, KC_MUTE, KC_MPLY, XXXXXXX, XXXXXXX, XXXXXXX,
+       XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,   RGB_RMOD, KC_VOLD, KC_MNXT, KC_BRID, XXXXXXX, XXXXXXX,
   // ├───────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   RGB_RMOD, KC_VOLD, KC_MNXT, KC_BRID, XXXXXXX, XXXXXXX,
+       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    RGB_TOG, KC_MUTE, KC_MPLY, XXXXXXX, XXXXXXX, XXXXXXX,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
                                   _______, _______, XXXXXXX,    XXXXXXX, XXXXXXX,
                                            _______, _______,    XXXXXXX
