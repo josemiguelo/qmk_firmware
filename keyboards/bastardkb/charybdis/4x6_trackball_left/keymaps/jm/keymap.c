@@ -170,11 +170,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
        XXXXXXX, XXXXXXX, KC_LCBR, KC_LBRC, KC_LPRN, XXXXXXX,    XXXXXXX, KC_RPRN, KC_RBRC, KC_RCBR, XXXXXXX, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX, XXXXXXX, KC_PGUP,   KC_UP, KC_PGDN,  KC_SPC,    KC_GRV, KC_EXLM, KC_ASTR, KC_PERC, KC_CIRC, XXXXXXX,
+       XXXXXXX, XXXXXXX, KC_PGUP,   KC_UP, KC_PGDN,  KC_SPC,     KC_GRV, KC_EXLM, KC_ASTR, KC_PERC, KC_CIRC, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX, KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT,  KC_END,    KC_DLR,  KC_EQL, KC_UNDS, KC_MINS, TD_QUOT, XXXXXXX,
+       XXXXXXX, KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT,  KC_END,     KC_DLR,  KC_EQL, KC_UNDS, KC_MINS, TD_QUOT, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX,    UNDO,     CUT,    COPY,   PASTE,  KC_DEL,    KC_HASH,KC_PPLS,   KC_AT, KC_AMPR, KC_DQUO, XXXXXXX,
+       XXXXXXX,    UNDO,     CUT,    COPY,   PASTE,  KC_DEL,    KC_HASH, KC_PPLS,   KC_AT, KC_AMPR, KC_DQUO, XXXXXXX,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
                                            _______, XXXXXXX,    KC_BSLS, TD_TILD, KC_PIPE,
                                                     XXXXXXX,    XXXXXXX, XXXXXXX
