@@ -138,7 +138,7 @@ tap_dance_action_t tap_dance_actions[] = {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE] = LAYOUT(
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
-       XXXXXXX, KC_LGUI, XXXXXXX, XXXXXXX, XXXXXXX, KC_CAPS,    DRGSCRL, KC_BTN1, SNIPING, KC_BTN2, KC_LGUI, XXXXXXX,
+       XXXXXXX, KC_LGUI, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    DRGSCRL, KC_BTN1, SNIPING, KC_BTN2, KC_LGUI, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        XXXXXXX,    KC_Q,   ALT_W,   CTL_E,   SFT_R,    KC_T,       KC_Y,   SFT_U,   CTL_I,   ALT_O,    KC_P, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
@@ -146,8 +146,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
           BOOT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,    BOOT,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                                           SYM_ENT, NUM_TAB,    FUN_DEL,NAV_SPC,  KC_BSPC,
-                                                      MEDIA,    XXXXXXX,  GAMING
+                                           SYM_ENT, NUM_TAB,    FUN_DEL, NAV_SPC, KC_BSPC,
+                                                      MEDIA,    KC_CAPS,  GAMING
   //                                     ╰──────────────────╯ ╰───────────────────────────╯
   ),
 
