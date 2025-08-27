@@ -85,6 +85,19 @@ static uint16_t auto_pointer_layer_timer = 0;
 
 #define TAPPING_TERM 200
 
+/************/
+/** COMBOS **/
+/************/
+const uint16_t PROGMEM esc_combo1[] = {KC_J, KC_K, COMBO_END};
+const uint16_t PROGMEM esc_combo2[] = {KC_D, KC_F, COMBO_END};
+combo_t key_combos[] = {
+    COMBO(esc_combo1, KC_ESC),
+    COMBO(esc_combo2, KC_ESC)
+};
+
+/***************/
+/** TAP DANCE **/
+/***************/
 enum {
   TD_ACCENT = 0,
   TD_TILDE
@@ -112,7 +125,6 @@ void td_tilde (tap_dance_state_t *state, void *user_data) {
   }
 }
 
-//Tap Dance Definitions
 tap_dance_action_t tap_dance_actions[] = {
   [TD_ACCENT] = ACTION_TAP_DANCE_FN(td_accent)
  ,[TD_TILDE]  = ACTION_TAP_DANCE_FN(td_tilde)
@@ -126,7 +138,7 @@ tap_dance_action_t tap_dance_actions[] = {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE] = LAYOUT(
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
-       XXXXXXX, KC_LGUI, XXXXXXX, XXXXXXX,  KC_ESC, KC_CAPS,    DRGSCRL, KC_BTN1, SNIPING, KC_BTN2, KC_LGUI, XXXXXXX,
+       XXXXXXX, KC_LGUI, XXXXXXX, XXXXXXX, XXXXXXX, KC_CAPS,    DRGSCRL, KC_BTN1, SNIPING, KC_BTN2, KC_LGUI, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        XXXXXXX,    KC_Q,   ALT_W,   CTL_E,   SFT_R,    KC_T,       KC_Y,   SFT_U,   CTL_I,   ALT_O,    KC_P, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
