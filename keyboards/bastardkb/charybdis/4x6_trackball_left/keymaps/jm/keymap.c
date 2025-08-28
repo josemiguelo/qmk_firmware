@@ -93,9 +93,11 @@ static uint16_t auto_pointer_layer_timer = 0;
 /************/
 const uint16_t PROGMEM esc_combo1[] = {KC_J, KC_K, COMBO_END};
 const uint16_t PROGMEM esc_combo2[] = {KC_D, KC_F, COMBO_END};
+const uint16_t PROGMEM caps_combo[] = {KC_LSFT, KC_RSFT, COMBO_END};
 combo_t key_combos[] = {
     COMBO(esc_combo1, KC_ESC),
-    COMBO(esc_combo2, KC_ESC)
+    COMBO(esc_combo2, KC_ESC),
+    COMBO(caps_combo, KC_CAPS)
 };
 
 /***************/
@@ -151,7 +153,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           BOOT,    KC_Z,    KC_X,    KC_C,  HYPR_V,    KC_B,       KC_N,  HYPR_M, KC_COMM,  KC_DOT, KC_SLSH,    BOOT,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
                                            SYM_ENT, NUM_TAB,    FUN_DEL, NAV_SPC, KC_BSPC,
-                                                      MEDIA,    KC_CAPS,  GAMING
+                                                      MEDIA,    XXXXXXX,  GAMING
   //                                     ╰──────────────────╯ ╰───────────────────────────╯
   ),
 
