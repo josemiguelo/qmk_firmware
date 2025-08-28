@@ -76,6 +76,9 @@ static uint16_t auto_pointer_layer_timer = 0;
 #define SEND        LCTL(KC_ENT)
 #define C_CLICK     LCTL(KC_BTN1)
 
+#define HYPR_V      HYPR_T(KC_V)
+#define HYPR_M      HYPR_T(KC_M)
+
 #ifndef POINTING_DEVICE_ENABLE
 #    define DRGSCRL KC_NO
 #    define DPI_MOD KC_NO
@@ -145,7 +148,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        KC_LSFT,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,       KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_RSFT,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-          BOOT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,    BOOT,
+          BOOT,    KC_Z,    KC_X,    KC_C,  HYPR_V,    KC_B,       KC_N,  HYPR_M, KC_COMM,  KC_DOT, KC_SLSH,    BOOT,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
                                            SYM_ENT, NUM_TAB,    FUN_DEL, NAV_SPC, KC_BSPC,
                                                       MEDIA,    KC_CAPS,  GAMING
