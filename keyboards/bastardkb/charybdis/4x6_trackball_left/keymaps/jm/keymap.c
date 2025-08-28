@@ -148,9 +148,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        XXXXXXX,    KC_Q,   ALT_W,   CTL_E,   SFT_R,    KC_T,       KC_Y,   SFT_U,   CTL_I,   ALT_O,    KC_P, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_LSFT,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,       KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_RSFT,
+       KC_LSFT,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,       KC_H,    KC_J,    KC_K,    KC_L, TD_QUOT, KC_RSFT,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-          BOOT,    KC_Z,    KC_X,    KC_C,  HYPR_V,    KC_B,       KC_N,  HYPR_M, KC_COMM,  KC_DOT, KC_SLSH,    BOOT,
+          BOOT,    KC_Z,    KC_X,    KC_C,  HYPR_V,    KC_B,       KC_N,  HYPR_M, KC_COMM,  KC_DOT, KC_DQUO,    BOOT,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
                                            SYM_ENT, NUM_TAB,    FUN_DEL, NAV_SPC, KC_BSPC,
                                                       MEDIA,    XXXXXXX,  GAMING
@@ -178,9 +178,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        XXXXXXX, XXXXXXX, KC_PGUP,   KC_UP, KC_PGDN,  KC_SPC,     KC_GRV, KC_EXLM, KC_ASTR, KC_PERC, KC_CIRC, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX, KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT,  KC_END,     KC_DLR,  KC_EQL, KC_UNDS, KC_MINS, TD_QUOT, XXXXXXX,
+       XXXXXXX, KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT,  KC_END,     KC_DLR,  KC_EQL, KC_UNDS, KC_MINS, KC_SCLN, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX,    UNDO,     CUT,    COPY,   PASTE,  KC_DEL,    KC_HASH, KC_PPLS,   KC_AT, KC_AMPR, KC_DQUO, XXXXXXX,
+       XXXXXXX,    UNDO,     CUT,    COPY,   PASTE,  KC_DEL,    KC_HASH, KC_PPLS,   KC_AT, KC_AMPR, KC_SLSH, XXXXXXX,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
                                            _______, XXXXXXX,    KC_BSLS, TD_TILD, KC_PIPE,
                                                     XXXXXXX,    XXXXXXX, XXXXXXX
