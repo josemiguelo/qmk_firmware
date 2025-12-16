@@ -243,7 +243,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
                                               KC_W, XXXXXXX,    XXXXXXX,    KC_J, XXXXXXX,
-                                                    XXXXXXX,    _______, XXXXXXX
+                                                    XXXXXXX,    XXXXXXX,  GAMING
   //                                     ╰──────────────────╯ ╰───────────────────────────╯
   ),
 
